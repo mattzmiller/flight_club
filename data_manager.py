@@ -1,6 +1,6 @@
 import requests
 import ast
-
+import pandas
 
 SHEETY_ENDPOINT = "https://api.sheety.co/2a7fb867a8003e04dcfec0a1bc51e2f1/flightDeals/prices"
 
@@ -8,13 +8,13 @@ class DataManager:
     #This class is responsible for talking to the Google Sheet.
     def __init__(self):
         try:
-            with open("cities.txt") as file:
+            with open("city_data/cities.txt") as file:
                 data = file.readlines()
                 self.cities = [ast.literal_eval(city.replace("\n", "")) for city in data]
         except FileNotFoundError:
             self.cities = []
             self.populate_cities()
-            with open("cities.txt", mode="w") as cities_data_file:
+            with open("city_data/cities.txt", mode="w") as cities_data_file:
                 for city in self.cities:
                     cities_data_file.write(f"{city}\n")
 
@@ -31,5 +31,8 @@ class DataManager:
         response.raise_for_status()
         print(response.json())
         print(key, value)
+
+    def get_csv(self):
+        return pandas.read_csv("city_data/flight_deals.csv")
 
 
