@@ -9,6 +9,4 @@ data_manager = DataManager()
 flight_search = FlightSearch()
 flight_data = FlightData()
 
-# flight_search.get_lowest_price()
-
-flight_data.process_flights()
+flight_data.get_lowest_price()

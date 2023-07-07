@@ -5,7 +5,7 @@ import datetime as dt
 
 
 TEQUILA_LOCATIONS_ENDPOINT = "https://api.tequila.kiwi.com/locations/query"
-TEQUILA_SEARCH_ENDPOINT = "https://api.tequila.kiwi.com/v2"
+TEQUILA_SEARCH_ENDPOINT = "https://api.tequila.kiwi.com/v2/search"
 TEQUILA_API_KEY = "T-Lg9LLSyDuaiso5XggwumzjCJj95WGi"
 
 class FlightSearch:
@@ -43,7 +43,7 @@ class FlightSearch:
 
                 data_manager.add_city_code(city_code_formatted)
 
-    def get_lowest_price(self, city_code):
+    def get_flight_info(self, city_code):
         tomorrow = (dt.datetime.now() + dt.timedelta(1)).strftime("%d/%m/%Y")
         six_months_from_now = (dt.datetime.now() + dt.timedelta(180)).strftime("%d/%m/%Y")
 
@@ -55,4 +55,5 @@ class FlightSearch:
         }
 
         response = requests.get(url=self.search_endpoint, headers=self.headers, params=parameters)
-        print(response.json())
+
+        return response.json()["data"]
