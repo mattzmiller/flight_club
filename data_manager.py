@@ -1,6 +1,7 @@
 import requests
 import ast
 import pandas
+# from flight_data import FlightData
 
 SHEETY_ENDPOINT = "https://api.sheety.co/2a7fb867a8003e04dcfec0a1bc51e2f1/flightDeals/prices"
 
@@ -29,10 +30,13 @@ class DataManager:
         value = city_code[key]
         response = requests.put(url=f"{SHEETY_ENDPOINT}/{key}", json={"price": {"iataCode": value}})
         response.raise_for_status()
-        print(response.json())
-        print(key, value)
 
     def get_csv(self):
         return pandas.read_csv("city_data/flight_deals.csv")
+
+    def update_csv(self, flight_data):
+        df = pandas.DataFrame.from_dict(flight_data)
+        print(df)
+        df.to_csv("city_data/flight_deals.csv")
 
 

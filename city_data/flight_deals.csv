@@ -1,10 +1,10 @@
-City,IATA Code,Lowest Price
-Paris,PAR,54
-Berlin,BER,42
-Tokyo,TYO,485
-Sydney,SYD,551
-Istanbul,IST,95
-Kuala Lumpur,KUL,414
-New York,NYC,240
-San Francisco,SFO,260
-Cape Town,CPT,378
+,City,IATA Code,Lowest Price
+0,Paris,PAR,193
+1,Berlin,BER,201
+2,Tokyo,TYO,442
+3,Sydney,SYD,416
+4,Istanbul,IST,209
+5,Kuala Lumpur,KUL,512
+6,New York,NYC,62
+7,San Francisco,SFO,89
+8,Cape Town,CPT,598
