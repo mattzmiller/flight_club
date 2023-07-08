@@ -23,7 +23,6 @@ class FlightSearch:
             with open("city_data/city_codes.txt") as file:
                 data = file.readlines()
                 self.city_codes = [ast.literal_eval(city.replace("\n", "")) for city in data]
-                # print(self.city_codes)
         except FileNotFoundError:
             self.get_iata_codes()
 

@@ -9,5 +9,7 @@ data_manager = DataManager()
 flight_search = FlightSearch()
 flight_data = FlightData()
 
+flight_data.get_lowest_price()
 updated_flights = flight_data.flights
 data_manager.update_csv(updated_flights)
+

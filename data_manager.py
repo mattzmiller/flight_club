@@ -37,6 +37,6 @@ class DataManager:
     def update_csv(self, flight_data):
         df = pandas.DataFrame.from_dict(flight_data)
         print(df)
-        df.to_csv("city_data/flight_deals.csv")
+        df.to_csv("city_data/flight_deals.csv", index=False)
 
 
